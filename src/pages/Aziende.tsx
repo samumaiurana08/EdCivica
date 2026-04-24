@@ -21,7 +21,7 @@ const Aziende = () => (
       {aziende.map((a) => {
         const Icon = a.icon;
         return (
-          <article key={a.name} className="reveal gradient-card p-7 rounded-3xl shadow-card hover:-translate-y-1 transition-transform">
+          <article key={a.name} className="reveal glass glass-shine p-7 rounded-3xl hover:-translate-y-1 transition-transform">
             <div className="flex items-center gap-3 mb-4">
               <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-primary text-primary-foreground">
                 <Icon className="w-6 h-6" />

@@ -26,7 +26,7 @@ const Fotovoltaico = () => (
           { icon: Battery, title: "3. Accumulo", text: "Le batterie immagazzinano l'energia in eccesso per usarla la sera." },
           { icon: Home, title: "4. Casa & rete", text: "L'energia alimenta gli elettrodomestici; il surplus va in rete." },
         ].map(({ icon: Icon, title, text }) => (
-          <article key={title} className="reveal gradient-card p-6 rounded-3xl shadow-card">
+          <article key={title} className="reveal glass glass-shine p-6 rounded-3xl">
             <Icon className="w-10 h-10 text-primary mb-3" />
             <h3 className="font-bold text-primary mb-2">{title}</h3>
             <p className="text-sm text-muted-foreground">{text}</p>
@@ -48,7 +48,7 @@ const Fotovoltaico = () => (
             { v: "25 anni", l: "Vita utile pannelli" },
             { v: "~1,5 t", l: "CO₂ evitata l'anno" },
           ].map((s) => (
-            <div key={s.l} className="bg-white/10 backdrop-blur rounded-2xl p-5">
+            <div key={s.l} className="glass-dark glass-shine rounded-2xl p-5">
               <div className="text-4xl font-extrabold">{s.v}</div>
               <div className="opacity-80 text-sm mt-1">{s.l}</div>
             </div>
