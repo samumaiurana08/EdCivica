@@ -15,8 +15,8 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border">
-      <nav className="container mx-auto flex items-center justify-between py-4">
+    <header className="sticky top-3 z-50 px-3 lg:px-6">
+      <nav className="glass glass-shine container mx-auto flex items-center justify-between py-3 px-4 rounded-2xl">
         <Link to="/" className="flex items-center gap-2 group">
           <span className="grid place-items-center w-10 h-10 rounded-xl gradient-hero shadow-glow group-hover:scale-110 transition-transform">
             <Leaf className="w-5 h-5 text-primary-foreground" />
@@ -34,7 +34,7 @@ const Navbar = () => {
                   `px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     isActive
                       ? "bg-primary text-primary-foreground shadow-soft"
-                      : "text-foreground hover:bg-secondary hover:text-primary"
+                      : "text-foreground hover:bg-white/40 hover:text-primary"
                   }`
                 }
               >
@@ -45,7 +45,7 @@ const Navbar = () => {
         </ul>
 
         <button
-          className="lg:hidden p-2 rounded-lg hover:bg-secondary"
+          className="lg:hidden p-2 rounded-lg hover:bg-white/40"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
@@ -54,7 +54,7 @@ const Navbar = () => {
       </nav>
 
       {open && (
-        <ul className="lg:hidden container mx-auto pb-4 flex flex-col gap-1">
+        <ul className="glass glass-shine lg:hidden container mx-auto mt-2 p-2 rounded-2xl flex flex-col gap-1">
           {links.map((l) => (
             <li key={l.to}>
               <NavLink
@@ -65,7 +65,7 @@ const Navbar = () => {
                   `block px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                     isActive
                       ? "bg-primary text-primary-foreground"
-                      : "hover:bg-secondary"
+                      : "hover:bg-white/40"
                   }`
                 }
               >
