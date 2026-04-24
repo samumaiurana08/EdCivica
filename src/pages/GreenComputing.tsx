@@ -1,5 +1,7 @@
 import PageHero from "@/components/PageHero";
 import img from "@/assets/green-computing.jpg";
+import circuitImg from "@/assets/green-circuit.jpg";
+import laptopImg from "@/assets/green-laptop.jpg";
 import { Server, Leaf, Globe2, Cpu, Cloud, Shield, Flame, Sparkles } from "lucide-react";
 
 const intro = [
@@ -58,16 +60,43 @@ const GreenComputing = () => (
       image={img}
     />
 
+    {/* Featured con immagine "pianta su circuito" */}
+    <section className="container mx-auto py-16">
+      <div className="grid lg:grid-cols-2 gap-10 items-center">
+        <div className="reveal-x order-2 lg:order-1 relative group rounded-3xl overflow-hidden shadow-glow">
+          <img
+            src={circuitImg}
+            alt="Pianta verde che cresce su un circuito elettronico"
+            className="w-full h-auto object-cover transition-transform duration-[1500ms] group-hover:scale-110"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+        </div>
+        <div className="reveal order-1 lg:order-2">
+          <span className="inline-block px-3 py-1 rounded-full bg-accent/30 text-primary text-xs font-semibold uppercase tracking-wider mb-4">
+            Tecnologia + Natura
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-primary mb-5">
+            Quando l'informatica incontra il pianeta
+          </h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Hardware efficiente, software ottimizzato, energia rinnovabile e raffreddamento sostenibile:
+            il green computing è un nuovo modo di pensare il digitale, dove ogni byte ha un costo ambientale che possiamo ridurre.
+          </p>
+        </div>
+      </div>
+    </section>
+
     {/* Intro a 3 colonne */}
-    <section className="container mx-auto py-16 grid lg:grid-cols-3 gap-6">
+    <section className="container mx-auto pb-16 grid lg:grid-cols-3 gap-6">
       {intro.map(({ icon: Icon, title, text }, idx) => (
         <article
           key={title}
-          className="reveal glass glass-shine p-7 rounded-3xl hover:-translate-y-1 hover:shadow-glow transition-all duration-500"
+          className="reveal glass glass-shine p-7 rounded-3xl hover:-translate-y-1 hover:shadow-glow transition-all duration-500 group"
           style={{ transitionDelay: `${idx * 80}ms` }}
         >
-          <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group">
-            <Icon className="w-7 h-7 text-primary transition-transform duration-300 group-hover:scale-110" />
+          <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+            <Icon className="w-7 h-7 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
           </div>
           <h3 className="text-xl font-bold text-primary mb-2">{title}</h3>
           <p className="text-muted-foreground leading-relaxed">{text}</p>
@@ -136,13 +165,28 @@ const GreenComputing = () => (
 
     {/* Conclusione */}
     <section className="container mx-auto py-16">
-      <div className="reveal glass glass-shine rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-primary mb-5">Un'informatica più verde è possibile</h2>
-        <p className="text-lg text-muted-foreground leading-relaxed">
-          Il caso di Infomaniak dimostra che il green computing non è un'utopia, ma una <strong>realtà concreta e vantaggiosa</strong>.
-          Ridurre consumi energetici ed emissioni significa salvaguardare il pianeta e, allo stesso tempo,
-          rispondere alla crescente sensibilità dei consumatori verso le tematiche ambientali.
-        </p>
+      <div className="reveal relative rounded-3xl overflow-hidden shadow-glow group">
+        <img
+          src={laptopImg}
+          alt="Laptop su un prato verde — informatica sostenibile"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/40" />
+        <div className="relative p-8 md:p-14 text-primary-foreground max-w-3xl">
+          <Sparkles className="absolute top-6 right-6 w-7 h-7 opacity-50 animate-pulse" />
+          <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs font-semibold tracking-wider uppercase mb-4">
+            Conclusione
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 drop-shadow-lg">
+            Un'informatica più verde è possibile
+          </h2>
+          <p className="text-lg md:text-xl opacity-95 leading-relaxed drop-shadow">
+            Il caso di Infomaniak dimostra che il green computing non è un'utopia, ma una <strong>realtà concreta e vantaggiosa</strong>.
+            Ridurre consumi energetici ed emissioni significa salvaguardare il pianeta e rispondere
+            alla crescente sensibilità dei consumatori verso le tematiche ambientali.
+          </p>
+        </div>
       </div>
     </section>
   </>

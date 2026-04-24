@@ -1,5 +1,6 @@
 import PageHero from "@/components/PageHero";
 import img from "@/assets/agenda-2030.jpg";
+import lakeImg from "@/assets/agenda-lake.jpg";
 import { Zap, Briefcase, Cog, Recycle, ThermometerSun, Globe2, Sparkles } from "lucide-react";
 
 const goals = [
@@ -109,18 +110,32 @@ const Agenda2030 = () => (
 
     {/* Conclusione */}
     <section className="container mx-auto py-16">
-      <div className="reveal gradient-hero rounded-3xl p-8 md:p-14 text-primary-foreground shadow-glow text-center relative overflow-hidden">
-        <Sparkles className="absolute top-6 right-6 w-8 h-8 opacity-40 animate-pulse" />
-        <Sparkles className="absolute bottom-6 left-6 w-6 h-6 opacity-30 animate-pulse" style={{ animationDelay: "1s" }} />
-        <span className="inline-block px-3 py-1 rounded-full bg-white/15 text-xs font-semibold tracking-wider uppercase mb-4">
-          Conclusione
-        </span>
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-5">Un unico progetto per il futuro</h2>
-        <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto leading-relaxed">
-          Energia pulita, lavoro dignitoso, innovazione, consumo responsabile e lotta al cambiamento climatico
-          sono pagine dello stesso libro. Solo attraverso la collaborazione tra <strong>governi, imprese e cittadini</strong> potremo
-          consegnare alle generazioni future un pianeta abitabile.
-        </p>
+      <div className="reveal relative rounded-3xl overflow-hidden shadow-glow group">
+        {/* Foto di sfondo con zoom on hover */}
+        <img
+          src={lakeImg}
+          alt="Lago tra le montagne — un pianeta da proteggere"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
+          loading="lazy"
+        />
+        {/* Overlay gradient per leggibilità */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/70 to-primary/50" />
+
+        <div className="relative p-8 md:p-14 text-primary-foreground text-center">
+          <Sparkles className="absolute top-6 right-6 w-8 h-8 opacity-50 animate-pulse" />
+          <Sparkles className="absolute bottom-6 left-6 w-6 h-6 opacity-40 animate-pulse" style={{ animationDelay: "1s" }} />
+          <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs font-semibold tracking-wider uppercase mb-4">
+            Conclusione
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-5 drop-shadow-lg">
+            Un pianeta da consegnare al futuro
+          </h2>
+          <p className="text-lg md:text-xl opacity-95 max-w-3xl mx-auto leading-relaxed drop-shadow">
+            Energia pulita, lavoro dignitoso, innovazione, consumo responsabile e lotta al cambiamento climatico
+            sono pagine dello stesso libro. Solo attraverso la collaborazione tra <strong>governi, imprese e cittadini</strong> potremo
+            consegnare alle generazioni future un pianeta abitabile.
+          </p>
+        </div>
       </div>
     </section>
   </>
