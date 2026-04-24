@@ -31,7 +31,7 @@ const Agenda2030 = () => (
         {goals.map((g) => {
           const Icon = g.icon;
           return (
-            <article key={g.n} className="reveal gradient-card p-6 rounded-3xl shadow-card hover:shadow-glow transition-shadow">
+            <article key={g.n} className="reveal glass glass-shine p-6 rounded-3xl hover:shadow-glow transition-shadow">
               <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl ${g.color} mb-4`}>
                 <Icon className="w-7 h-7" />
               </div>

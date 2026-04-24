@@ -31,7 +31,7 @@ const Sport = () => (
           { icon: Recycle, title: "Attrezzature", text: "Materiali riciclati, durevoli e a basso impatto ambientale." },
           { icon: Leaf, title: "Ambiente", text: "Allenarsi all'aperto rispettando la natura che ci ospita." },
         ].map(({ icon: Icon, title, text }) => (
-          <div key={title} className="reveal gradient-card p-5 rounded-2xl shadow-card">
+          <div key={title} className="reveal glass glass-shine p-5 rounded-2xl">
             <Icon className="w-8 h-8 text-primary mb-2" />
             <h4 className="font-bold text-primary mb-1">{title}</h4>
             <p className="text-sm text-muted-foreground">{text}</p>
