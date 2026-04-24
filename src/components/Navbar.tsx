@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-3 z-50 px-3 lg:px-6">
-      <nav className="glass glass-shine container mx-auto flex items-center justify-between py-3 px-4 rounded-2xl">
+      <nav className="glass-soft glass-shine container mx-auto flex items-center justify-between py-3 px-4 rounded-2xl">
         <Link to="/" className="flex items-center gap-2 group">
           <span className="grid place-items-center w-10 h-10 rounded-xl gradient-hero shadow-glow group-hover:scale-110 transition-transform">
             <Leaf className="w-5 h-5 text-primary-foreground" />
@@ -54,7 +54,7 @@ const Navbar = () => {
       </nav>
 
       {open && (
-        <ul className="glass glass-shine lg:hidden container mx-auto mt-2 p-2 rounded-2xl flex flex-col gap-1">
+        <ul className="glass-soft glass-shine lg:hidden container mx-auto mt-2 p-2 rounded-2xl flex flex-col gap-1">
           {links.map((l) => (
             <li key={l.to}>
               <NavLink
