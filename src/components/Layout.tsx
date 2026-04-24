@@ -1,12 +1,14 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import GlassFilter from "./GlassFilter";
 import { useReveal } from "@/hooks/useReveal";
 
 const Layout = () => {
   useReveal();
   return (
     <div className="min-h-screen flex flex-col relative overflow-x-hidden">
+      <GlassFilter />
       {/* Bolle di colore di sfondo per esaltare l'effetto liquid glass */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute -top-40 -left-32 w-[520px] h-[520px] rounded-full blur-3xl opacity-50"
