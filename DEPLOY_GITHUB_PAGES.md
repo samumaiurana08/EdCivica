@@ -21,6 +21,18 @@ Il progetto è già configurato per essere pubblicato gratuitamente come **sito 
    https://<tuo-username>.github.io/<nome-repo>/
    ```
 
+## Risoluzione problemi
+
+### "npm ci" fallisce con "package-lock.json out of sync"
+Succede se `package.json` e `package-lock.json` non sono allineati. Il workflow ora
+fa automaticamente fallback a `npm install`, quindi il build prosegue comunque.
+Se vuoi rigenerare il lockfile in locale:
+```bash
+rm package-lock.json
+npm install
+git add package-lock.json && git commit -m "chore: refresh lockfile"
+```
+
 ## Sviluppo locale
 
 ```bash
