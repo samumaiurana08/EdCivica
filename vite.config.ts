@@ -5,6 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // base path: in produzione usa la variabile GH_PAGES_BASE (es. "/nome-repo/")
+  // settata dal workflow di GitHub Actions; in locale e in dev resta "/"
+  base: mode === "production" ? (process.env.GH_PAGES_BASE || "/") : "/",
   server: {
     host: "::",
     port: 8080,
