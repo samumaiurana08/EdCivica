@@ -22,9 +22,9 @@ const PageTransition = ({ children }: Props) => {
         exit: { opacity: 0, y: -8 },
       }
     : {
-        initial: { opacity: 0, rotateY: 90, scale: 0.85, transformPerspective: 1400 },
+        initial: { opacity: 0, rotateY: 35, scale: 0.95, transformPerspective: 1400 },
         animate: { opacity: 1, rotateY: 0, scale: 1, transformPerspective: 1400 },
-        exit: { opacity: 0, rotateY: -90, scale: 0.85, transformPerspective: 1400 },
+        exit: { opacity: 0, rotateY: -35, scale: 0.95, transformPerspective: 1400 },
       };
 
   return (
@@ -36,7 +36,7 @@ const PageTransition = ({ children }: Props) => {
           animate={variants.animate}
           exit={variants.exit}
           transition={{
-            duration: isMobile ? 0.35 : 0.7,
+            duration: isMobile ? 0.3 : 0.45,
             ease: [0.65, 0, 0.35, 1],
           }}
           style={{ transformOrigin: "center center", willChange: "transform, opacity" }}
