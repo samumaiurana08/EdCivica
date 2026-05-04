@@ -1,4 +1,5 @@
 import PageHero from "@/components/PageHero";
+import Tilt3D from "@/components/Tilt3D";
 import img from "@/assets/aziende.jpg";
 import lbgImg from "@/assets/azienda-lbg.jpg";
 import enelImg from "@/assets/azienda-enel.jpg";
@@ -175,12 +176,14 @@ const Aziende = () => (
               }`}
             >
               <div className="reveal-x">
-                <img
-                  src={a.image}
-                  alt={a.name}
-                  className="w-full h-72 md:h-96 object-cover rounded-3xl shadow-glow"
-                  loading="lazy"
-                />
+                <Tilt3D className="rounded-3xl">
+                  <img
+                    src={a.image}
+                    alt={a.name}
+                    className="w-full h-72 md:h-96 object-cover rounded-3xl shadow-glow"
+                    loading="lazy"
+                  />
+                </Tilt3D>
               </div>
               <div className="reveal">
                 <div className="flex items-center gap-2 mb-3">
@@ -202,16 +205,15 @@ const Aziende = () => (
               {a.sections.map((s) => {
                 const Icon = s.icon;
                 return (
-                  <div
-                    key={s.title}
-                    className="reveal glass p-6 rounded-2xl hover:-translate-y-1 transition-transform"
-                  >
-                    <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary text-primary-foreground mb-3">
-                      <Icon className="w-5 h-5" />
-                    </span>
-                    <h3 className="text-lg font-bold text-primary mb-2">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{s.text}</p>
-                  </div>
+                  <Tilt3D key={s.title} intensity={8} className="reveal">
+                    <div className="glass p-6 rounded-2xl h-full">
+                      <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary text-primary-foreground mb-3">
+                        <Icon className="w-5 h-5" />
+                      </span>
+                      <h3 className="text-lg font-bold text-primary mb-2">{s.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{s.text}</p>
+                    </div>
+                  </Tilt3D>
                 );
               })}
             </div>
