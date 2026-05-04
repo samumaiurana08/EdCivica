@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Globe, Cpu, Building2, Activity, Sun, Sparkles } from "lucide-react";
+import Tilt3D from "@/components/Tilt3D";
 import hero from "@/assets/hero-sostenibilita.jpg";
 import imgAgenda from "@/assets/agenda-2030.jpg";
 import imgGreen from "@/assets/green-computing.jpg";
@@ -79,14 +80,16 @@ const Index = () => (
               className={`group grid md:grid-cols-2 gap-8 items-center ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}
             >
               <div className="reveal-x">
-                <div className="overflow-hidden rounded-3xl shadow-card">
-                  <img
-                    src={s.image}
-                    alt={s.title}
-                    loading="lazy"
-                    className="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
+                <Tilt3D className="rounded-3xl">
+                  <div className="overflow-hidden rounded-3xl shadow-glow">
+                    <img
+                      src={s.image}
+                      alt={s.title}
+                      loading="lazy"
+                      className="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                </Tilt3D>
               </div>
               <div className="reveal">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-primary/10 text-primary mb-4">
