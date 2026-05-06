@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const links = [
   { to: "/", label: "Home" },
+  { to: "/progetto", label: "Il progetto" },
   { to: "/agenda-2030", label: "Agenda 2030" },
   { to: "/green-computing", label: "Green Computing" },
   { to: "/aziende", label: "Aziende" },

@@ -9,7 +9,7 @@ const Footer = () => (
           <span className="font-bold text-primary">L'informatica verde non perde</span>
         </div>
         <p className="text-sm text-muted-foreground">
-          Progetto di Educazione Civica sulla sostenibilità ambientale e sul risparmio energetico nel mondo digitale.
+          UDA <em>“Noi per uno sviluppo sostenibile”</em> — Educazione Civica, classe 4ª F, Indirizzo Informatica. I.I.S.S. "G. Ferraris", Ragusa — A.S. 2025/2026.
         </p>
       </div>
       <div>
@@ -23,9 +23,9 @@ const Footer = () => (
       <div>
         <h4 className="font-semibold mb-3 text-primary">Risorse</h4>
         <ul className="text-sm text-muted-foreground space-y-1">
-          <li>HTML · CSS · JavaScript</li>
-          <li>GitHub Pages</li>
-          <li>Canva · Microsoft Designer</li>
+          <li>Coordinatrice: Prof.ssa Rosa Azzarelli</li>
+          <li>HTML · CSS · JavaScript · React</li>
+          <li>GitHub Pages · Canva · MS Designer</li>
         </ul>
       </div>
     </div>
