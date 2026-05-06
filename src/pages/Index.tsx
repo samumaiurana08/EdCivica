@@ -23,7 +23,7 @@ const Index = () => (
       <div className="container mx-auto relative grid md:grid-cols-2 gap-12 items-center py-20 md:py-28">
         <div className="reveal">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/30 text-primary text-xs font-semibold uppercase tracking-wider mb-5">
-            <Sparkles className="w-3.5 h-3.5" /> Educazione Civica · UDA
+            <Sparkles className="w-3.5 h-3.5" /> UDA · Noi per uno sviluppo sostenibile · 4ª F
           </span>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary leading-[1.05] mb-6">
             L'informatica <span className="bg-clip-text text-transparent gradient-hero">verde</span> non perde.
