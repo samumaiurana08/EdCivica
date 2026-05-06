@@ -1,6 +1,6 @@
 import PageHero from "@/components/PageHero";
 import img from "@/assets/fotovoltaico.jpg";
-import { Sun, Battery, Plug, Home, TrendingDown } from "lucide-react";
+import { Sun, Battery, Plug, Home, TrendingDown, Wind, Factory, Lightbulb } from "lucide-react";
 
 const Fotovoltaico = () => (
   <>
@@ -12,6 +12,27 @@ const Fotovoltaico = () => (
     />
 
     <section className="container mx-auto py-16">
+      {/* Fonti rinnovabili vs non rinnovabili */}
+      <div className="grid md:grid-cols-2 gap-6 mb-16">
+        <div className="reveal glass glass-shine rounded-3xl p-8">
+          <Wind className="w-10 h-10 text-primary mb-3" />
+          <h2 className="text-2xl font-extrabold text-primary mb-3">Fonti rinnovabili</h2>
+          <p className="text-muted-foreground leading-relaxed">
+            Sole, vento, acqua, biomasse e geotermia: si rigenerano naturalmente in tempi compatibili con
+            la vita umana. Producono energia <strong>senza emissioni dirette di CO₂</strong> e riducono la
+            dipendenza dai combustibili fossili.
+          </p>
+        </div>
+        <div className="reveal glass glass-shine rounded-3xl p-8">
+          <Factory className="w-10 h-10 text-primary mb-3" />
+          <h2 className="text-2xl font-extrabold text-primary mb-3">Fonti non rinnovabili</h2>
+          <p className="text-muted-foreground leading-relaxed">
+            Carbone, petrolio e gas naturale: si esauriscono e generano gas serra. Sono la principale causa
+            del cambiamento climatico e del peggioramento della qualità dell'aria nelle aree urbane.
+          </p>
+        </div>
+      </div>
+
       <div className="text-center mb-12 reveal">
         <h2 className="text-3xl font-bold text-primary mb-3">Come funziona un impianto</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -32,6 +53,30 @@ const Fotovoltaico = () => (
             <p className="text-sm text-muted-foreground">{text}</p>
           </article>
         ))}
+      </div>
+
+      {/* Come un'azienda diventa green */}
+      <div className="reveal mt-16 glass glass-shine rounded-3xl p-8 md:p-12">
+        <div className="flex items-center gap-3 mb-4">
+          <Lightbulb className="w-8 h-8 text-primary" />
+          <h2 className="text-3xl font-extrabold text-primary">Come un'azienda diventa "green"</h2>
+        </div>
+        <p className="text-muted-foreground text-lg leading-relaxed mb-6 max-w-4xl">
+          La transizione di un'azienda verso un modello sostenibile passa da scelte concrete: produzione
+          energetica autonoma, efficienza dei processi e gestione responsabile dei materiali.
+        </p>
+        <div className="grid sm:grid-cols-3 gap-4">
+          {[
+            { t: "Autoconsumo", d: "Installazione di impianti fotovoltaici sui tetti per coprire il fabbisogno produttivo." },
+            { t: "Efficienza", d: "Relamping LED, motori ad alta efficienza, recupero del calore di processo." },
+            { t: "Economia circolare", d: "Riuso degli scarti, riciclo dei materiali e fornitori certificati." },
+          ].map((s) => (
+            <div key={s.t} className="rounded-2xl bg-primary/5 p-5">
+              <div className="font-bold text-primary mb-1">{s.t}</div>
+              <p className="text-sm text-muted-foreground">{s.d}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="reveal mt-16 gradient-hero rounded-3xl p-8 md:p-12 text-primary-foreground shadow-glow">
