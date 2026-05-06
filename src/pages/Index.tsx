@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Cpu, Building2, Activity, Sun, Sparkles } from "lucide-react";
+import { ArrowRight, Globe, Cpu, Building2, Activity, Sun, Sparkles, GraduationCap, Calendar, Target } from "lucide-react";
 import Tilt3D from "@/components/Tilt3D";
 import hero from "@/assets/hero-sostenibilita.jpg";
 import imgAgenda from "@/assets/agenda-2030.jpg";
@@ -106,6 +106,44 @@ const Index = () => (
             </Link>
           );
         })}
+      </div>
+    </section>
+
+    {/* L'UDA in breve */}
+    <section className="container mx-auto pb-20">
+      <div className="reveal glass glass-shine rounded-3xl p-8 md:p-12">
+        <div className="flex items-center gap-3 mb-3">
+          <GraduationCap className="w-7 h-7 text-primary" />
+          <span className="text-xs uppercase tracking-widest font-bold text-muted-foreground">
+            Unità di Apprendimento · Educazione Civica · A.S. 2025/2026
+          </span>
+        </div>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-primary mb-3">
+          "Noi per uno sviluppo sostenibile"
+        </h2>
+        <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-4xl">
+          Un percorso interdisciplinare della classe <strong>4ª F · Indirizzo Informatica</strong> dell'I.I.S.S.
+          "G. Ferraris" di Ragusa. Attraverso la conoscenza di aziende che producono nel rispetto dell'ambiente
+          e attuano un'economia equa e sostenibile, l'UDA fornisce un orientamento etico sull'uso delle risorse
+          e rafforza le competenze sociali e civiche. Coordinatrice: <strong>Prof.ssa Rosa Azzarelli</strong>.
+        </p>
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="rounded-2xl bg-primary/5 p-5">
+            <Target className="w-7 h-7 text-primary mb-2" />
+            <div className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Nucleo concettuale</div>
+            <div className="font-semibold text-primary">Sviluppo economico e sostenibilità</div>
+          </div>
+          <div className="rounded-2xl bg-primary/5 p-5">
+            <Calendar className="w-7 h-7 text-primary mb-2" />
+            <div className="text-xs uppercase tracking-widest text-muted-foreground mb-1">I quadrimestre</div>
+            <div className="font-semibold text-primary">Progetto di massima · 15 gen 2026</div>
+          </div>
+          <div className="rounded-2xl bg-primary/5 p-5">
+            <Calendar className="w-7 h-7 text-primary mb-2" />
+            <div className="text-xs uppercase tracking-widest text-muted-foreground mb-1">II quadrimestre</div>
+            <div className="font-semibold text-primary">Sito web finale · 15 mag 2026</div>
+          </div>
+        </div>
       </div>
     </section>
   </>

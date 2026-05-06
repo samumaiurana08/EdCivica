@@ -18,7 +18,7 @@ import {
 const Sport = () => (
   <>
     <PageHero
-      eyebrow="Sport & ambiente · Agenda 2030 · Obiettivo 3"
+      eyebrow="Sport & ambiente · UDA Scienze Motorie"
       title="Lo sport sostenibile"
       subtitle="Un metodo di organizzare e praticare le attività sportive che minimizza gli impatti ambientali e massimizza i benefici sociali ed economici nel lungo periodo."
       image={img}
