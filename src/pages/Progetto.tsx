@@ -7,7 +7,7 @@ const Progetto = () => (
     <PageHero
       eyebrow="UDA · Educazione Civica · A.S. 2025/2026"
       title="Il Progetto"
-      subtitle='"Noi per uno sviluppo sostenibile" — un percorso interdisciplinare della classe 4ª F (Informatica) dell\'I.I.S.S. "G. Ferraris" di Ragusa.'
+      subtitle={`"Noi per uno sviluppo sostenibile" — un percorso interdisciplinare della classe 4ª F (Informatica) dell'I.I.S.S. "G. Ferraris" di Ragusa.`}
       image={hero}
     />
 
