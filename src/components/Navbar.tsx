@@ -9,6 +9,7 @@ const links = [
   { to: "/aziende", label: "Aziende" },
   { to: "/sport", label: "Sport sostenibile" },
   { to: "/fotovoltaico", label: "Fotovoltaico" },
+  { to: "/progetto", label: "Il progetto" },
 ];
 
 const Navbar = () => {
