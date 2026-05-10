@@ -10,6 +10,7 @@ import GreenComputing from "./pages/GreenComputing.tsx";
 import Aziende from "./pages/Aziende.tsx";
 import Sport from "./pages/Sport.tsx";
 import Fotovoltaico from "./pages/Fotovoltaico.tsx";
+import Progetto from "./pages/Progetto.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/aziende" element={<Aziende />} />
             <Route path="/sport" element={<Sport />} />
             <Route path="/fotovoltaico" element={<Fotovoltaico />} />
+            <Route path="/progetto" element={<Progetto />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
