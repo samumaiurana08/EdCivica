@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useRef } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, Sphere, Stars, Icosahedron, MeshDistortMaterial } from "@react-three/drei";
 import { useLocation } from "react-router-dom";
@@ -86,13 +86,30 @@ function Particles({ color }: { color: string }) {
   );
 }
 
+function detectWebGL(): boolean {
+  try {
+    const canvas = document.createElement("canvas");
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext("webgl2") || canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
+    );
+  } catch {
+    return false;
+  }
+}
+
 const SceneBackground = () => {
   const { pathname } = useLocation();
   const isMobile = useIsMobile();
   const palette = ROUTE_PALETTE[pathname] ?? ROUTE_PALETTE["/"];
+  const [webglOk, setWebglOk] = useState<boolean>(true);
 
-  // Su mobile: niente WebGL, solo gradiente animato come fallback
-  if (isMobile) {
+  useEffect(() => {
+    setWebglOk(detectWebGL());
+  }, []);
+
+  // Su mobile o se WebGL non è disponibile: gradiente animato come fallback
+  if (isMobile || !webglOk) {
     return (
       <div
         aria-hidden
@@ -113,6 +130,13 @@ const SceneBackground = () => {
         camera={{ position: [0, 0, 6], fov: 55 }}
         dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+        onCreated={({ gl }) => {
+          const canvas = gl.domElement;
+          canvas.addEventListener("webglcontextlost", (e) => {
+            e.preventDefault();
+            setWebglOk(false);
+          });
+        }}
       >
         <color attach="background" args={["#f4faf2"]} />
         <fog attach="fog" args={["#f4faf2", 8, 18]} />
