@@ -9,11 +9,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
     <style>
-      /* Hide Google Translate UI but keep widget functional */
-      #google_translate_element { position: fixed; top: -9999px; left: -9999px; opacity: 0; pointer-events: none; }
-      .goog-te-banner-frame, .skiptranslate { display: none !important; }
-      body { top: 0 !important; }
-      .goog-tooltip, .goog-tooltip:hover, .goog-text-highlight { display: none !important; background: none !important; box-shadow: none !important; }
+      /* Hide Google Translate UI completely while keeping translation working */
+      #google_translate_element,
+      .goog-te-banner-frame,
+      .goog-te-banner-frame.skiptranslate,
+      .goog-te-gadget,
+      .goog-te-gadget-simple,
+      .goog-logo-link,
+      iframe.goog-te-menu-frame,
+      iframe.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+      .VIpgJd-ZVi9od-aZ2wEe,
+      .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
+      body { top: 0 !important; position: static !important; }
+      html { margin-top: 0 !important; }
+      .goog-tooltip, .goog-tooltip:hover, .goog-text-highlight {
+        display: none !important; background: none !important; box-shadow: none !important;
+      }
+      /* Hidden mount node for the widget */
+      #google_translate_element { position: absolute !important; left: -9999px !important; top: -9999px !important; width: 0 !important; height: 0 !important; overflow: hidden !important; }
     </style>
   </head>
   <body>
