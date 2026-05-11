@@ -1,6 +1,7 @@
 import { NavLink, Link } from "react-router-dom";
 import { Leaf, Menu, X } from "lucide-react";
 import { useState } from "react";
+import LangToggle from "./LangToggle";
 
 const links = [
   { to: "/", label: "Home" },
@@ -43,15 +44,19 @@ const Navbar = () => {
               </NavLink>
             </li>
           ))}
+          <li className="ml-1"><LangToggle /></li>
         </ul>
 
-        <button
-          className="lg:hidden p-2 rounded-lg hover:bg-white/40"
-          onClick={() => setOpen(!open)}
-          aria-label="Menu"
-        >
-          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <div className="lg:hidden flex items-center gap-1">
+          <LangToggle />
+          <button
+            className="p-2 rounded-lg hover:bg-white/40"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+          >
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </nav>
 
       {open && (
