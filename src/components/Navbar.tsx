@@ -2,19 +2,37 @@ import { NavLink, Link } from "react-router-dom";
 import { Leaf, Menu, X } from "lucide-react";
 import { useState } from "react";
 import LangToggle from "./LangToggle";
-
-const links = [
-  { to: "/", label: "Home" },
-  { to: "/agenda-2030", label: "Agenda 2030" },
-  { to: "/green-computing", label: "Green Computing" },
-  { to: "/aziende", label: "Aziende" },
-  { to: "/sport", label: "Sport sostenibile" },
-  { to: "/fotovoltaico", label: "Fotovoltaico" },
-  { to: "/progetto", label: "Il progetto" },
-];
+import { useT } from "@/i18n/LanguageContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const t = useT({
+    it: {
+      brand: "Ed. Civica",
+      links: [
+        { to: "/", label: "Home" },
+        { to: "/agenda-2030", label: "Agenda 2030" },
+        { to: "/green-computing", label: "Green Computing" },
+        { to: "/aziende", label: "Aziende" },
+        { to: "/sport", label: "Sport sostenibile" },
+        { to: "/fotovoltaico", label: "Fotovoltaico" },
+        { to: "/progetto", label: "Il progetto" },
+      ],
+    },
+    en: {
+      brand: "Civic Ed.",
+      links: [
+        { to: "/", label: "Home" },
+        { to: "/agenda-2030", label: "Agenda 2030" },
+        { to: "/green-computing", label: "Green Computing" },
+        { to: "/aziende", label: "Companies" },
+        { to: "/sport", label: "Sustainable sport" },
+        { to: "/fotovoltaico", label: "Photovoltaics" },
+        { to: "/progetto", label: "The project" },
+      ],
+    },
+  });
+  const links = t.links;
 
   return (
     <header className="sticky top-3 z-50 px-3 lg:px-6">
@@ -23,7 +41,7 @@ const Navbar = () => {
           <span className="grid place-items-center w-10 h-10 rounded-xl gradient-hero shadow-glow group-hover:scale-110 transition-transform">
             <Leaf className="w-5 h-5 text-primary-foreground" />
           </span>
-          <span className="font-bold text-lg text-primary">Ed. Civica</span>
+          <span className="font-bold text-lg text-primary">{t.brand}</span>
         </Link>
 
         <ul className="hidden lg:flex items-center gap-1">
