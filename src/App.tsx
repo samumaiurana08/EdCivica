@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "./components/Layout";
+import { LanguageProvider } from "./i18n/LanguageContext";
 import Index from "./pages/Index.tsx";
 import Agenda2030 from "./pages/Agenda2030.tsx";
 import GreenComputing from "./pages/GreenComputing.tsx";
@@ -17,24 +18,26 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <HashRouter>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Index />} />
-            <Route path="/agenda-2030" element={<Agenda2030 />} />
-            <Route path="/green-computing" element={<GreenComputing />} />
-            <Route path="/aziende" element={<Aziende />} />
-            <Route path="/sport" element={<Sport />} />
-            <Route path="/fotovoltaico" element={<Fotovoltaico />} />
-            <Route path="/progetto" element={<Progetto />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </HashRouter>
-    </TooltipProvider>
+    <LanguageProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <HashRouter>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Index />} />
+              <Route path="/agenda-2030" element={<Agenda2030 />} />
+              <Route path="/green-computing" element={<GreenComputing />} />
+              <Route path="/aziende" element={<Aziende />} />
+              <Route path="/sport" element={<Sport />} />
+              <Route path="/fotovoltaico" element={<Fotovoltaico />} />
+              <Route path="/progetto" element={<Progetto />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </HashRouter>
+      </TooltipProvider>
+    </LanguageProvider>
   </QueryClientProvider>
 );
 
