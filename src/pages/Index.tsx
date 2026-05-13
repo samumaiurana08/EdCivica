@@ -48,9 +48,9 @@ const Index = () => {
     },
     en: {
       eyebrow: "Learning Unit · We for sustainable development · class 4F",
-      heroLead: "Green computing ",
-      heroAccent: "is never",
-      heroTail: " losing.",
+      heroLead: "",
+      heroAccent: "Green",
+      heroTail: " computing is never losing.",
       heroSub: "A journey through environmental sustainability, the 2030 Agenda, green computing and the technologies that protect our planet.",
       ctaPrimary: "Start the journey",
       ctaSecondary: "Explore the sections",
