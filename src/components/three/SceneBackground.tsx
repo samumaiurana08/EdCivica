@@ -19,20 +19,21 @@ function FloatingPlanet({ color }: { color: string }) {
   const ref = useRef<THREE.Mesh>(null);
   useFrame((_, delta) => {
     if (ref.current) {
-      ref.current.rotation.y += delta * 0.15;
-      ref.current.rotation.x += delta * 0.05;
+      ref.current.rotation.y += delta * 0.05;
+      ref.current.rotation.x += delta * 0.02;
     }
   });
   return (
-    <Float speed={1.2} rotationIntensity={0.6} floatIntensity={1.4}>
-      <Sphere ref={ref} args={[1.6, 64, 64]} position={[2.5, 0.2, 0]}>
-        {/* MeshDistortMaterial richiede un material child con animazione */}
+    <Float speed={0.4} rotationIntensity={0.15} floatIntensity={0.35}>
+      <Sphere ref={ref} args={[1.4, 64, 64]} position={[3.2, 0.4, -0.5]}>
         <MeshDistortMaterial
           color={color}
-          distort={0.35}
-          speed={1.5}
-          roughness={0.25}
-          metalness={0.4}
+          distort={0.12}
+          speed={0.4}
+          roughness={0.3}
+          metalness={0.35}
+          opacity={0.92}
+          transparent
         />
       </Sphere>
     </Float>
@@ -103,10 +104,23 @@ const SceneBackground = () => {
   const isMobile = useIsMobile();
   const palette = ROUTE_PALETTE[pathname] ?? ROUTE_PALETTE["/"];
   const [webglOk, setWebglOk] = useState<boolean>(true);
+  const [retryKey, setRetryKey] = useState(0);
 
   useEffect(() => {
     setWebglOk(detectWebGL());
   }, []);
+
+  // Se il contesto WebGL si perde, riprova dopo un breve delay invece di restare in fallback
+  useEffect(() => {
+    if (webglOk) return;
+    const t = setTimeout(() => {
+      if (detectWebGL()) {
+        setRetryKey((k) => k + 1);
+        setWebglOk(true);
+      }
+    }, 1500);
+    return () => clearTimeout(t);
+  }, [webglOk]);
 
   // Su mobile o se WebGL non è disponibile: gradiente animato come fallback
   if (isMobile || !webglOk) {
@@ -127,6 +141,7 @@ const SceneBackground = () => {
   return (
     <div className="pointer-events-none fixed inset-0 -z-10">
       <Canvas
+        key={retryKey}
         camera={{ position: [0, 0, 6], fov: 55 }}
         dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
@@ -135,6 +150,9 @@ const SceneBackground = () => {
           canvas.addEventListener("webglcontextlost", (e) => {
             e.preventDefault();
             setWebglOk(false);
+          });
+          canvas.addEventListener("webglcontextrestored", () => {
+            setWebglOk(true);
           });
         }}
       >
