@@ -1,6 +1,6 @@
 import PageHero from "@/components/PageHero";
 import hero from "@/assets/hero-sostenibilita.jpg";
-import { GraduationCap, Calendar, Target, Users, BookOpen, CheckCircle2 } from "lucide-react";
+import { GraduationCap, Calendar, Target, Users, CheckCircle2 } from "lucide-react";
 import { useT } from "@/i18n/LanguageContext";
 
 const Progetto = () => {
@@ -17,15 +17,6 @@ const Progetto = () => {
       phases: [
         { eyebrow: "Fase 1 · I quadrimestre", title: "Progetto di massima", text: (<>Studio dei contenuti, raccolta materiali, struttura del sito e definizione delle responsabilità. <strong>Scadenza: 15 gennaio 2026</strong>.</>) },
         { eyebrow: "Fase 2 · II quadrimestre", title: "Sito web finale", text: (<>Realizzazione completa del sito, presentazione e valutazione del prodotto digitale.<strong> Scadenza: 15 maggio 2026</strong>.</>) },
-      ],
-      discTitle: "Discipline coinvolte",
-      disciplines: [
-        { d: "Italiano", t: "Letteratura e ambiente" },
-        { d: "Informatica", t: "Sviluppo del sito web" },
-        { d: "Matematica", t: "Dati e modelli statistici" },
-        { d: "Telecomunicazioni", t: "Energie e fotovoltaico" },
-        { d: "Inglese", t: "Sustainability e lessico tecnico" },
-        { d: "Scienze Motorie", t: "Sport e stili di vita sostenibili" },
       ],
       teamTitle: "Il team",
       team: [
@@ -56,15 +47,6 @@ const Progetto = () => {
         { eyebrow: "Phase 1 · First semester", title: "Outline project", text: (<>Content study, collection of materials, site structure and definition of responsibilities. <strong>Deadline: 15 January 2026</strong>.</>) },
         { eyebrow: "Phase 2 · Second semester", title: "Final website", text: (<>Full delivery of the website, presentation and assessment of the digital product.<strong> Deadline: 15 May 2026</strong>.</>) },
       ],
-      discTitle: "Disciplines involved",
-      disciplines: [
-        { d: "Italian", t: "Literature and the environment" },
-        { d: "Computer Science", t: "Website development" },
-        { d: "Mathematics", t: "Data and statistical models" },
-        { d: "Telecommunications", t: "Energy and photovoltaics" },
-        { d: "English", t: "Sustainability and technical vocabulary" },
-        { d: "Physical Education", t: "Sport and sustainable lifestyles" },
-      ],
       teamTitle: "The team",
       team: [
         { n: "Alessandro Torrisi", r: "Development & coordination" },
@@ -94,6 +76,21 @@ const Progetto = () => {
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-primary mb-4">{t.finTitle}</h2>
           <p className="text-muted-foreground text-lg leading-relaxed max-w-4xl">{t.finText}</p>
+
+          <div className="mt-8 pt-8 border-t border-border/60">
+            <div className="flex items-center gap-3 mb-4">
+              <Target className="w-6 h-6 text-primary" />
+              <h3 className="text-2xl font-extrabold text-primary">{t.goalsTitle}</h3>
+            </div>
+            <ul className="grid md:grid-cols-2 gap-3">
+              {t.goals.map((o) => (
+                <li key={o} className="flex items-start gap-2 text-muted-foreground">
+                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span>{o}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -109,21 +106,6 @@ const Progetto = () => {
 
         <div className="reveal glass glass-shine rounded-3xl p-8 md:p-12">
           <div className="flex items-center gap-3 mb-4">
-            <BookOpen className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl font-extrabold text-primary">{t.discTitle}</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {t.disciplines.map((x) => (
-              <div key={x.d} className="rounded-2xl bg-primary/5 p-5">
-                <div className="text-xs uppercase tracking-widest text-muted-foreground mb-1">{x.d}</div>
-                <div className="font-semibold text-primary">{x.t}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="reveal glass glass-shine rounded-3xl p-8 md:p-12">
-          <div className="flex items-center gap-3 mb-4">
             <Users className="w-7 h-7 text-primary" />
             <h2 className="text-3xl font-extrabold text-primary">{t.teamTitle}</h2>
           </div>
@@ -135,21 +117,6 @@ const Progetto = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="reveal glass glass-shine rounded-3xl p-8 md:p-12">
-          <div className="flex items-center gap-3 mb-4">
-            <Target className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl font-extrabold text-primary">{t.goalsTitle}</h2>
-          </div>
-          <ul className="grid md:grid-cols-2 gap-3">
-            {t.goals.map((o) => (
-              <li key={o} className="flex items-start gap-2 text-muted-foreground">
-                <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <span>{o}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
     </>
